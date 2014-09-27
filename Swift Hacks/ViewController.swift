@@ -5,7 +5,7 @@
 //  Created by Isaac Rosenberg on 9/27/14.
 //  Copyright (c) 2014 irosenb. All rights reserved.
 //
-
+import Darwin
 import UIKit
 
 class ViewController: UIViewController, BLEDelegate {
@@ -69,9 +69,27 @@ class ViewController: UIViewController, BLEDelegate {
         println("bleDidReceiveData")
         
         // parse data, all commands are in 2 bytes
-        for var index = 0; index < length; index+=2{
-            println(data[index])
-            println(data[index+1])
+        for var index = 0; index < length; index+=3{
+            
+            
+           // println(data[index])
+            //println(data[index+1])
+            //println(data[index+2])
+            var gX=((3.3*(Float(data[0]))/255)-1.65)/0.8
+            var gY=((3.3*(Float(data[1]))/255)-1.65)/0.8
+            var gZ=((3.3*(Float(data[2]))/255)-1.65)/0.8
+            
+            var R = sqrt(pow(gX, 2) + pow(gY, 2) + pow(gZ,2))
+            
+            var thetaX=acos(gX/R)
+            var thetaY=acos(gY/R)
+            var thetaZ=acos(gZ/R)
+            
+            println(thetaX)
+            println(thetaY)
+            println(thetaZ)
+            
+            
         }
     }
 }
