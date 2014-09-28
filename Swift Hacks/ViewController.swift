@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, BLEDelegate {
     lazy var ble = BLE()
+    lazy var baselineAdder = 0
+    lazy var exertionAdder = Float()
+    lazy var realTimeExertion=Float()
+    lazy var baselineFlag = 0
+    lazy var firstThirty = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +72,7 @@ class ViewController: UIViewController, BLEDelegate {
     }
     
     func bleDidReceiveData(data: UnsafeMutablePointer<UInt8>, length: Int) {
-        println("bleDidReceiveData")
+        //println("bleDidReceiveData")
         
         // parse data, all commands are in 2 bytes
         for var index = 0; index < length; index+=3{
@@ -81,13 +87,42 @@ class ViewController: UIViewController, BLEDelegate {
             
             var R = sqrt(pow(gX, 2) + pow(gY, 2) + pow(gZ,2))
             
-            var thetaX=acos(gX/R)
-            var thetaY=acos(gY/R)
-            var thetaZ=acos(gZ/R)
-            
-            println(thetaX)
-            println(thetaY)
-            println(thetaZ)
+            var thetaX=round(acos(gX/R)*100/3)
+            var thetaY=round(acos(gY/R)*100/3)
+            var thetaZ=round(acos(gZ/R)*100/3)
+            if(firstThirty<300){
+            if(thetaX>60){
+                print("<- leaning left")
+            }
+            if(thetaX<40){
+                print("-> leaning right")
+            }
+            if(thetaZ<55){
+                print("V leaning backward")
+            }
+            if(thetaZ>65){
+                print("^ leaning forward")
+            }
+                println()
+            }
+            firstThirty++
+            //
+            baselineAdder++
+            realTimeExertion = realTimeExertion + R
+            if(baselineFlag<1){
+                exertionAdder = exertionAdder + R
+               // println(exertionAdder)
+            }
+            if(baselineAdder>20){
+                baselineFlag=1
+                println(abs(round(realTimeExertion-exertionAdder)))
+                realTimeExertion=0
+                baselineAdder=0
+            }
+
+            //println(thetaX)
+            //println(thetaY)
+            //println(thetaZ)
             
             
         }

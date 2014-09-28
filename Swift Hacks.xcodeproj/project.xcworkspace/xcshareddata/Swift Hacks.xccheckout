@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>22BD8DF6-7447-4C2E-9C71-DCC224E22A22</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Swift Hacks</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B901B9A92E85E8AB3BAC7C6FB3C4B909DAFEA294</key>
+		<string>https://github.com/alxyee/swiftHackProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Swift Hacks.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B901B9A92E85E8AB3BAC7C6FB3C4B909DAFEA294</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alxyee/swiftHackProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B901B9A92E85E8AB3BAC7C6FB3C4B909DAFEA294</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B901B9A92E85E8AB3BAC7C6FB3C4B909DAFEA294</string>
+			<key>IDESourceControlWCCName</key>
+			<string>swift-hacks-master</string>
+		</dict>
+	</array>
+</dict>
+</plist>
